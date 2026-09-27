@@ -149,7 +149,7 @@
             box-shadow: 3px 3px 0px #000;
         }
 
-        /* Modal Styles */
+        /* Modal Styles with Scrolling */
         #disclaimerModal {
             display: none;
             position: fixed;
@@ -157,7 +157,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.5);
             z-index: 100;
             justify-content: center;
             align-items: center;
@@ -169,24 +169,30 @@
             border: 3px solid #000;
             border-radius: 18px;
             padding: 28px;
-            max-width: 420px;
+            max-width: 600px;
             width: 100%;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
             box-shadow: 6px 6px 0px #000;
         }
 
         .modal-title {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 900;
             text-transform: uppercase;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
         .modal-text {
-            font-size: 14px;
-            font-weight: 700;
+            font-size: 13px;
+            font-weight: 600;
             color: #222;
-            line-height: 1.5;
-            margin-bottom: 24px;
+            line-height: 1.6;
+            overflow-y: auto;
+            padding-right: 10px;
+            margin-bottom: 20px;
+            white-space: pre-line;
         }
 
         @media (max-width: 600px) {
@@ -292,31 +298,39 @@
     <!-- DISCLAIMER MODAL -->
     <div id="disclaimerModal">
         <div class="modal-content">
-            <div class="modal-title">Disclaimer</div>
+            <div class="modal-title">Legal Disclaimer</div>
             <div class="modal-text">Last Updated: September 2026
+
 1. Educational Purpose Only
 The content provided on JEE Vault (study.lkvaibhav.me), including all downloadable PDF textbooks, reference materials, study guides, and academic notes, is made available strictly for educational, non-commercial, and informational purposes. This platform is intended to assist students and competitive exam aspirants by improving accessibility to core study resources. The site owner does not derive any financial profit, commercial gain, or monetary compensation from the distribution of these files.
+
 2. Intellectual Property and Copyright Notice
 JEE Vault does not claim ownership of any third-party textbooks, publisher publications, or author materials hosted or linked on this platform. All copyrights, trademarks, logos, and registered intellectual property rights belong exclusively to their respective authors, publishing houses, and creators (including but not limited to Cengage, H.C. Verma, Vikas Gupta, Narendra Avasthi, J.D. Lee, M.S. Chouhan, and Pearson Education).
 The materials are hosted via content delivery networks solely to facilitate seamless academic collaboration and sharing among student peers. If you are a legitimate copyright holder, publisher, or authorized legal representative and believe that any material on this website infringes upon your intellectual property rights, please contact us immediately at thebrainbrowserofficial@gmail.com. Upon receipt of a valid and substantiated notice, the associated links, references, or files will be promptly reviewed and permanently removed.
+
 3. "As-Is" and "As-Available" Disclaimer
 All information, documents, and files provided on JEE Vault are offered on an "as-is" and "as-available" basis without any warranties of any kind, either express or implied. While we strive to maintain a functional and clean platform infrastructure, the site owner makes no representations or warranties regarding:
-The absolute accuracy, typographical correctness, currency, or completeness of the provided study resources.
-The uninterrupted, secure, or error-free operation of the website or third-party content delivery networks.
-The academic outcome, examination performance, or suitability of these materials for specific competitive testing requirements.
+- The absolute accuracy, typographical correctness, currency, or completeness of the provided study resources.
+- The uninterrupted, secure, or error-free operation of the website or third-party content delivery networks.
+- The academic outcome, examination performance, or suitability of these materials for specific competitive testing requirements.
+
 4. Limitation of Liability
 Under no circumstances shall the creator, owner, or maintainer of JEE Vault (L K Vaibhav) be held liable for any direct, indirect, incidental, consequential, or punitive damages arising out of or in connection with:
-Your access to, use of, or inability to use the website or its downloadable files.
-Any technical failures, download interruptions, slow network speeds, or data corruption encountered on your local devices.
-Any academic decisions or reliance placed by users on the content, formulas, or solutions found within the hosted documents.
+- Your access to, use of, or inability to use the website or its downloadable files.
+- Any technical failures, download interruptions, slow network speeds, or data corruption encountered on your local devices.
+- Any academic decisions or reliance placed by users on the content, formulas, or solutions found within the hosted documents.
+
 5. External Links Disclaimer
 The website may contain links to external websites, code repositories, or third-party web platforms (such as GitHub, Hack Club, and educational blogs). These external links are provided purely for user convenience and reference. The site owner exercises no control over, and assumes no liability for, the content, security, or privacy practices of any third-party websites.
+
 6. User Conduct and Responsibility
 Users accessing this website agree to use the downloadable materials responsibly and in compliance with all applicable local copyright and educational regulations. Users are solely responsible for ensuring that their utilization of these academic texts adheres to fair use guidelines and local legal standards.
+
 7. Updates and Modifications
 This legal disclaimer is subject to revision, modification, or updating at any time without prior notice. Continued use of JEE Vault following any updates constitutes formal acceptance of the revised terms.
+
 For any questions, copyright inquiries, or concerns regarding this disclaimer, please reach out via email at thebrainbrowserofficial@gmail.com.</div>
-            <button onclick="closeModal()" class="contact-btn">Got it</button>
+            <button onclick="closeModal()" class="contact-btn" style="align-self: flex-start; margin-top: 10px;">Got it</button>
         </div>
     </div>
 
