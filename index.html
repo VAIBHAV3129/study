@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JEE Study Material</title>
+    <title>JEE Vault</title>
     <style>
         * {
             box-sizing: border-box;
@@ -76,7 +76,54 @@
             font-size: 14px;
         }
 
-        footer {
+        .contact-box {
+            background: #eee3d8;
+            border: 3px solid #000;
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: 4px 4px 0px #000;
+            margin-top: 50px;
+        }
+
+        .contact-title {
+            font-size: 18px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .contact-sub {
+            font-size: 14px;
+            font-weight: 700;
+            color: #444;
+            margin-bottom: 16px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            background: #f3eae1;
+            border: 2px solid #000;
+            padding: 10px 16px;
+            font-size: 13px;
+            font-weight: 800;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #000;
+            box-shadow: 2px 2px 0px #000;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+
+        .contact-btn:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: 3px 3px 0px #000;
+        }
+
+        footer-bar {
             position: fixed;
             bottom: 0;
             left: 0;
@@ -105,69 +152,79 @@
 
     <h1>JEE Prep Materials</h1>
 
+    <!-- MATHEMATICS -->
     <div class="subject">
         <div class="subject-title">Mathematics</div>
         <div class="file-list">
-            <a href="materials/Maths/Black Book9 Vikas Gupta.pdf" class="file-card" download>
+            <a href="https://cdn.hackclub.com/01a0e2bc-b5f3-761c-b30f-fd0441d7f412/Black%20Book9%20Vikas%20Gupta.pdf" class="file-card" download>
                 <span>Black Book — Vikas Gupta</span>
                 <span class="arrow">▶</span>
             </a>
         </div>
     </div>
 
+    <!-- PHYSICS -->
     <div class="subject">
         <div class="subject-title">Physics</div>
         <div class="file-list">
-            <a href="materials/Physics/Concepts Of Physics Vol1 HC Verma.pdf" class="file-card" download>
+            <a href="https://cdn.hackclub.com/01a0e2ad-bff6-716b-b2b3-409922e7082d/Concepts%20Of%20Physics%20Vol1%20HC%20Verma.pdf" class="file-card" download>
                 <span>Concepts Of Physics Vol 1 — H.C. Verma</span>
                 <span class="arrow">▶</span>
             </a>
-            <a href="materials/Physics/Concepts of Physics Part-2 by H C Verma.pdf" class="file-card" download>
+            <a href="https://cdn.hackclub.com/01a0e2ad-bb4f-7dc5-9830-8545f883879a/Concepts%20of%20Physics%20Part-2%20by%20H%20C%20Verma.pdf" class="file-card" download>
                 <span>Concepts Of Physics Vol 2 — H.C. Verma</span>
                 <span class="arrow">▶</span>
             </a>
-            <a href="materials/Physics/Irodov.pdf" class="file-card" download>
+            <a href="https://cdn.hackclub.com/01a0e2ad-b8c7-7020-aa78-be4469259e02/Irodov.pdf" class="file-card" download>
                 <span>Problems in General Physics — I.E. Irodov</span>
                 <span class="arrow">▶</span>
             </a>
-            <a href="materials/Physics/Pathfinder Physics.pdf" class="file-card" download>
-                <span>Pathfinder for Olympiad & JEE Advanced</span>
+            <a href="https://cdn.hackclub.com/01a0e2ad-c238-7122-8763-1348d6d142ce/Pathfinder%20Physics.pdf" class="file-card" download>
+                <span>Pathfinder Physics</span>
                 <span class="arrow">▶</span>
             </a>
-            <a href="materials/Physics/Rahul Sardana - JEE Advanced Physics-Mechanics-I-Pearson India Education Services Pvt. Ltd (2020).pdf" class="file-card" download>
+            <a href="https://cdn.hackclub.com/01a0e2ad-cae5-7ef1-9ba9-fa27697c9955/Rahul%20Sardana%20-%20JEE%20Advanced%20Physics-Mechanics-I-Pearson%20India%20Education%20Services%20Pvt.%20Ltd%20(2020).pdf" class="file-card" download>
                 <span>JEE Advanced Mechanics Vol 1 — Rahul Sardana</span>
                 <span class="arrow">▶</span>
             </a>
-            <a href="materials/Physics/Rahul Sardana - JEE Advanced Physics-Mechanics-II-Pearson India Education Services Pvt. Ltd (2020).pdf" class="file-card" download>
+            <a href="https://cdn.hackclub.com/01a0e2ad-c534-72bb-9968-20a42eb256d9/Rahul%20Sardana%20-%20JEE%20Advanced%20Physics-Mechanics-II-Pearson%20India%20Education%20Services%20Pvt.%20Ltd%20(2020).pdf" class="file-card" download>
                 <span>JEE Advanced Mechanics Vol 2 — Rahul Sardana</span>
                 <span class="arrow">▶</span>
             </a>
         </div>
     </div>
 
+    <!-- CHEMISTRY -->
     <div class="subject">
         <div class="subject-title">Chemistry</div>
         <div class="file-list">
-            <a href="materials/Chemistry/Cengage Physical Chemistry.pdf" class="file-card" download>
-                <span>Physical Chemistry — Cengage</span>
+            <a href="https://cdn.hackclub.com/01a0e2b6-e611-7500-936e-1f3e23cf28de/NARENDRA%20AVASTHI%201.pdf" class="file-card" download>
+                <span>Problems in Physical Chemistry — Narendra Avasthi</span>
                 <span class="arrow">▶</span>
             </a>
-            <a href="materials/Chemistry/JD Lee Concise Inorganic Chemistry for JEE.pdf" class="file-card" download>
+            <a href="https://cdn.hackclub.com/01a0e2b4-d76f-74c3-abfa-9e62bf23637b/JD%20Lee%20Concise%20Inorganic%20Chemistry%20for%20JEE.pdf" class="file-card" download>
                 <span>Concise Inorganic Chemistry — J.D. Lee</span>
                 <span class="arrow">▶</span>
             </a>
-            <a href="materials/Chemistry/M.S.Chouhan Advanced Theory in Organic Chemistry .pdf" class="file-card" download>
+            <a href="https://cdn.hackclub.com/01a0e2b4-977f-7807-9693-7debc8754ce8/M.S.Chouhan%20Advanced%20Theory%20in%20Organic%20Chemistry%20.pdf" class="file-card" download>
                 <span>Advanced Theory in Organic Chemistry — M.S. Chouhan</span>
-                <span class="arrow">▶</span>
-            </a>
-            <a href="materials/Chemistry/NARENDRA AVASTHI 1.pdf" class="file-card" download>
-                <span>Problems in Physical Chemistry — Narendra Avasthi</span>
                 <span class="arrow">▶</span>
             </a>
         </div>
     </div>
 
-    <footer></footer>
+    <!-- CONTACT / FOOTER -->
+    <div class="contact-box">
+        <div class="contact-title">Made by L K Vaibhav</div>
+        <div class="contact-sub">Connect with me or explore my work:</div>
+        <div class="contact-links">
+            <a href="https://github.com/VAIBHAV3129" target="_blank" class="contact-btn">GitHub ↗</a>
+            <a href="https://thebrainbrowser.blogspot.com/" target="_blank" class="contact-btn">The Brain Browser ↗</a>
+            <a href="mailto:thebrainbrowserofficial@gmail.com" class="contact-btn">Email Me ✉</a>
+        </div>
+    </div>
+
+    <div style="position: fixed; bottom: 0; left: 0; width: 100%; height: 12px; background: linear-gradient(to bottom, #f97316 0%, #f97316 50%, #ec4899 50%, #ec4899 100%);"></div>
 
 </body>
 </html>
