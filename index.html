@@ -172,6 +172,92 @@
             box-shadow: 4px 4px 0px #000;
         }
 
+        /* Lock Screen Modal */
+        #authOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(245, 239, 230, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .auth-card {
+            background: #ffedd5;
+            border: 3px solid #000;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 8px 8px 0px #000;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .auth-card h2 {
+            font-size: 26px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .auth-card p {
+            font-size: 14px;
+            font-weight: 700;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .auth-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 3px solid #000;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            background: #fff;
+            margin-bottom: 16px;
+            outline: none;
+            box-shadow: 3px 3px 0px #000;
+        }
+
+        .auth-btn {
+            width: 100%;
+            background: #ec4899;
+            color: #fff;
+            border: 3px solid #000;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 900;
+            text-transform: uppercase;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 4px 4px 0px #000;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+
+        .auth-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #000;
+        }
+
+        .auth-error {
+            margin-top: 12px;
+            color: #dc2626;
+            font-weight: 800;
+            font-size: 13px;
+            display: none;
+        }
+
+        #vaultContent {
+            display: none;
+        }
+
         /* Modal Styles */
         #disclaimerModal {
             display: none;
@@ -251,114 +337,59 @@
 </head>
 <body>
 
-    <!-- HORIZONS TOP STRIPES -->
-    <div class="horizons-stripes"></div>
-
-    <!-- TOP BANNER WITH TAGLINE & NOTICE -->
-    <div class="header-banner">
-        <h1>JEE Vault</h1>
-        <div class="tagline">Fully free JEE prep books, from many sources, ad-free forever. New books and reference material will be updated soon.</div>
-        <div class="notice">Note: Some large textbook PDFs may take a few moments longer to load or download depending on your connection.</div>
-    </div>
-
-    <!-- MATHEMATICS -->
-    <div class="subject">
-        <div class="subject-title">Mathematics</div>
-        <div class="file-list">
-            <a href="https://cdn.hackclub.com/01a0e2bc-b5f3-761c-b30f-fd0441d7f412/Black%20Book9%20Vikas%20Gupta.pdf" class="file-card" download>
-                <span>Black Book — Vikas Gupta</span>
-                <span class="arrow">▶</span>
-            </a>
-            <a href="https://cdn.hackclub.com/01a0e36d-fd43-77d8-8329-2e233c936fba/Wiley%20s%20Problems%20in%20Mathematics%20for%20IIT%20JEE%20Main%20and%20Advanced%20Vol%20I%201%20Maestro%20Series%20with%20Summarized%20Concepts%20(Wiley%20Teachers)_compressed.pdf" class="file-card" download>
-                <span>Problems in Mathematics Vol 1 — Wiley Maestro Series</span>
-                <span class="arrow">▶</span>
-            </a>
+    <!-- AUTHENTICATION OVERLAY -->
+    <div id="authOverlay">
+        <div class="auth-card">
+            <h2>🔒 Vault Locked</h2>
+            <p>Enter the password to decrypt and access JEE Vault resources.</p>
+            <form id="authForm" onsubmit="unlockVault(event)">
+                <input type="password" id="vaultPassword" class="auth-input" placeholder="Enter password..." required autofocus autocomplete="off">
+                <button type="submit" class="auth-btn">Unlock Vault</button>
+            </form>
+            <div id="authError" class="auth-error">Incorrect password. Decryption failed.</div>
         </div>
     </div>
 
-    <!-- PHYSICS -->
-    <div class="subject">
-        <div class="subject-title">Physics</div>
-        <div class="file-list">
-            <a href="https://cdn.hackclub.com/01a0e2ad-bff6-716b-b2b3-409922e7082d/Concepts%20Of%20Physics%20Vol1%20HC%20Verma.pdf" class="file-card" download>
-                <span>Concepts Of Physics Vol 1 — H.C. Verma</span>
-                <span class="arrow">▶</span>
-            </a>
-            <a href="https://cdn.hackclub.com/01a0e2ad-bb4f-7dc5-9830-8545f883879a/Concepts%20of%20Physics%20Part-2%20by%20H%20C%20Verma.pdf" class="file-card" download>
-                <span>Concepts Of Physics Vol 2 — H.C. Verma</span>
-                <span class="arrow">▶</span>
-            </a>
-            <a href="https://cdn.hackclub.com/01a0e2ad-b8c7-7020-aa78-be4469259e02/Irodov.pdf" class="file-card" download>
-                <span>Problems in General Physics — I.E. Irodov</span>
-                <span class="arrow">▶</span>
-            </a>
-            <a href="https://cdn.hackclub.com/01a0e2ad-c238-7122-8763-1348d6d142ce/Pathfinder%20Physics.pdf" class="file-card" download>
-                <span>Pathfinder Physics</span>
-                <span class="arrow">▶</span>
-            </a>
-            <a href="https://cdn.hackclub.com/01a0e2ad-cae5-7ef1-9ba9-fa27697c9955/Rahul%20Sardana%20-%20JEE%20Advanced%20Physics-Mechanics-I-Pearson%20India%20Education%20Services%20Pvt.%20Ltd%20(2020).pdf" class="file-card" download>
-                <span>JEE Advanced Mechanics Vol 1 — Rahul Sardana</span>
-                <span class="arrow">▶</span>
-            </a>
-            <a href="https://cdn.hackclub.com/01a0e2ad-c534-72bb-9968-20a42eb256d9/Rahul%20Sardana%20-%20JEE%20Advanced%20Physics-Mechanics-II-Pearson%20India%20Education%20Services%20Pvt.%20Ltd%20(2020).pdf" class="file-card" download>
-                <span>JEE Advanced Mechanics Vol 2 — Rahul Sardana</span>
-                <span class="arrow">▶</span>
-            </a>
-            <a href="https://cdn.hackclub.com/01a0e35d-0834-7720-98ab-ff11b72f9e2c/A%20Problem%20Book%20in%20Physics%20500%20Selected%20Problems%20for%20IIT%20JEE%20Arihant%20(D%20C%20Pandey)%20.pdf" class="file-card" download>
-                <span>500 Selected Problems in Physics — D.C. Pandey</span>
-                <span class="arrow">▶</span>
-            </a>
-            <a href="https://cdn.hackclub.com/01a0e354-4369-77d4-986b-d5f1de9786dc/Understanding%20Physics%20for%20JEE%20Main%20%20Advanced%20-%20Mechanics%20Part%201%20(DC%20Pandey).pdf" class="file-card" download>
-                <span>Understanding Physics: Mechanics Part 1 — D.C. Pandey</span>
-                <span class="arrow">▶</span>
-            </a>
-            <a href="https://cdn.hackclub.com/01a0e354-3d46-7ca1-9794-d52d524e6d16/DC%20Pandey%20Mechanics%20Vol-2%20(D%20C%20Pandey)%20.pdf" class="file-card" download>
-                <span>Understanding Physics: Mechanics Vol 2 — D.C. Pandey</span>
-                <span class="arrow">▶</span>
-            </a>
-            <a href="https://cdn.hackclub.com/01a0e354-3967-74c2-ab33-753efd2bae6b/DC%20Pandey%20-%20Electricity%20%20Magnetism%20DC%20Pandey.pdf" class="file-card" download>
-                <span>Understanding Physics: Electricity & Magnetism — D.C. Pandey</span>
-                <span class="arrow">▶</span>
-            </a>
-            <a href="https://cdn.hackclub.com/01a0e354-360b-701c-a110-2b4727fb1a51/Understanding%20Physics%20JEE%20Main%20%20Advanced%20-%20Optics%20and%20Modern%20Physics%20(DC%20Pandey).pdf" class="file-card" download>
-                <span>Understanding Physics: Optics & Modern Physics — D.C. Pandey</span>
-                <span class="arrow">▶</span>
-            </a>
-            <a href="https://cdn.hackclub.com/01a0e354-32b2-7996-9166-1e053ce04653/Understanding%20Physics%20JEE%20Main%20%20Advanced%20-%20Waves%20and%20Thermodynamics%20(DC%20Pandey).pdf" class="file-card" download>
-                <span>Understanding Physics: Waves & Thermodynamics — D.C. Pandey</span>
-                <span class="arrow">▶</span>
-            </a>
-        </div>
-    </div>
+    <!-- MAIN VAULT CONTENT (Hidden until decrypted) -->
+    <div id="vaultContent">
+        <!-- HORIZONS TOP STRIPES -->
+        <div class="horizons-stripes"></div>
 
-    <!-- CHEMISTRY -->
-    <div class="subject">
-        <div class="subject-title">Chemistry</div>
-        <div class="file-list">
-            <a href="https://cdn.hackclub.com/01a0e2b6-e611-7500-936e-1f3e23cf28de/NARENDRA%20AVASTHI%201.pdf" class="file-card" download>
-                <span>Problems in Physical Chemistry — Narendra Avasthi</span>
-                <span class="arrow">▶</span>
-            </a>
-            <a href="https://cdn.hackclub.com/01a0e2b4-d76f-74c3-abfa-9e62bf23637b/JD%20Lee%20Concise%20Inorganic%20Chemistry%20for%20JEE.pdf" class="file-card" download>
-                <span>Concise Inorganic Chemistry — J.D. Lee</span>
-                <span class="arrow">▶</span>
-            </a>
-            <a href="https://cdn.hackclub.com/01a0e2b4-977f-7807-9693-7debc8754ce8/M.S.Chouhan%20Advanced%20Theory%20in%20Organic%20Chemistry%20.pdf" class="file-card" download>
-                <span>Advanced Theory in Organic Chemistry — M.S. Chouhan</span>
-                <span class="arrow">▶</span>
-            </a>
+        <!-- TOP BANNER WITH TAGLINE & NOTICE -->
+        <div class="header-banner">
+            <h1>JEE Vault</h1>
+            <div class="tagline">Fully free JEE prep books, from many sources, ad-free forever. New books and reference material will be updated soon.</div>
+            <div class="notice">Note: Some large textbook PDFs may take a few moments longer to load or download depending on your connection.</div>
         </div>
-    </div>
 
-    <!-- CONTACT / FOOTER -->
-    <div class="contact-box">
-        <div class="contact-title">Made by L K Vaibhav</div>
-        <div class="contact-sub">Connect with me or explore my work:</div>
-        <div class="contact-links">
-            <a href="https://github.com/VAIBHAV3129" target="_blank" class="contact-btn">GitHub ↗</a>
-            <a href="https://thebrainbrowser.blogspot.com/" target="_blank" class="contact-btn">The Brain Browser ↗</a>
-            <a href="mailto:thebrainbrowserofficial@gmail.com" class="contact-btn">Email Me ✉</a>
-            <button onclick="openModal()" class="contact-btn">Disclaimer</button>
+        <!-- MATHEMATICS -->
+        <div class="subject">
+            <div class="subject-title">Mathematics</div>
+            <div class="file-list" id="mathList"></div>
+        </div>
+
+        <!-- PHYSICS -->
+        <div class="subject">
+            <div class="subject-title">Physics</div>
+            <div class="file-list" id="physicsList"></div>
+        </div>
+
+        <!-- CHEMISTRY -->
+        <div class="subject">
+            <div class="subject-title">Chemistry</div>
+            <div class="file-list" id="chemList"></div>
+        </div>
+
+        <!-- CONTACT / FOOTER -->
+        <div class="contact-box">
+            <div class="contact-title">Made by L K Vaibhav</div>
+            <div class="contact-sub">Connect with me or explore my work:</div>
+            <div class="contact-links">
+                <a href="https://github.com/VAIBHAV3129" target="_blank" class="contact-btn">GitHub ↗</a>
+                <a href="https://thebrainbrowser.blogspot.com/" target="_blank" class="contact-btn">The Brain Browser ↗</a>
+                <a href="mailto:thebrainbrowserofficial@gmail.com" class="contact-btn">Email Me ✉</a>
+                <button onclick="openModal()" class="contact-btn">Disclaimer</button>
+            </div>
         </div>
     </div>
 
@@ -404,8 +435,153 @@ For any questions, copyright inquiries, or concerns regarding this disclaimer, p
     <!-- GRUNGE BRUSH STROKE FOOTER DIVIDER -->
     <div class="grunge-footer"></div>
 
-    <!-- SCRIPT FOR MODAL -->
+    <!-- CRYPTOGRAPHIC ENCRYPTION ENGINE -->
     <script>
+        // Raw vault links database
+        const VAULT_LINKS = {
+            math: [
+                { title: "Black Book — Vikas Gupta", url: "https://cdn.hackclub.com/01a0e2bc-b5f3-761c-b30f-fd0441d7f412/Black%20Book9%20Vikas%20Gupta.pdf" },
+                { title: "Problems in Mathematics Vol 1 — Wiley Maestro Series", url: "https://cdn.hackclub.com/01a0e36d-fd43-77d8-8329-2e233c936fba/Wiley%20s%20Problems%20in%20Mathematics%20for%20IIT%20JEE%20Main%20and%20Advanced%20Vol%20I%201%20Maestro%20Series%20with%20Summarized%20Concepts%20(Wiley%20Teachers)_compressed.pdf" }
+            ],
+            physics: [
+                { title: "Concepts Of Physics Vol 1 — H.C. Verma", url: "https://cdn.hackclub.com/01a0e2ad-bff6-716b-b2b3-409922e7082d/Concepts%20Of%20Physics%20Vol1%20HC%20Verma.pdf" },
+                { title: "Concepts Of Physics Vol 2 — H.C. Verma", url: "https://cdn.hackclub.com/01a0e2ad-bb4f-7dc5-9830-8545f883879a/Concepts%20of%20Physics%20Part-2%20by%20H%20C%20Verma.pdf" },
+                { title: "Problems in General Physics — I.E. Irodov", url: "https://cdn.hackclub.com/01a0e2ad-b8c7-7020-aa78-be4469259e02/Irodov.pdf" },
+                { title: "Pathfinder Physics", url: "https://cdn.hackclub.com/01a0e2ad-c238-7122-8763-1348d6d142ce/Pathfinder%20Physics.pdf" },
+                { title: "JEE Advanced Mechanics Vol 1 — Rahul Sardana", url: "https://cdn.hackclub.com/01a0e2ad-cae5-7ef1-9ba9-fa27697c9955/Rahul%20Sardana%20-%20JEE%20Advanced%20Physics-Mechanics-I-Pearson%20India%20Education%20Services%20Pvt.%20Ltd%20(2020).pdf" },
+                { title: "JEE Advanced Mechanics Vol 2 — Rahul Sardana", url: "https://cdn.hackclub.com/01a0e2ad-c534-72bb-9968-20a42eb256d9/Rahul%20Sardana%20-%20JEE%20Advanced%20Physics-Mechanics-II-Pearson%20India%20Education%20Services%20Pvt.%20Ltd%20(2020).pdf" },
+                { title: "500 Selected Problems in Physics — D.C. Pandey", url: "https://cdn.hackclub.com/01a0e35d-0834-7720-98ab-ff11b72f9e2c/A%20Problem%20Book%20in%20Physics%20500%20Selected%20Problems%20for%20IIT%20JEE%20Arihant%20(D%20C%20Pandey)%20.pdf" },
+                { title: "Understanding Physics: Mechanics Part 1 — D.C. Pandey", url: "https://cdn.hackclub.com/01a0e354-4369-77d4-986b-d5f1de9786dc/Understanding%20Physics%20for%20JEE%20Main%20%20Advanced%20-%20Mechanics%20Part%201%20(DC%20Pandey).pdf" },
+                { title: "Understanding Physics: Mechanics Vol 2 — D.C. Pandey", url: "https://cdn.hackclub.com/01a0e354-3d46-7ca1-9794-d52d524e6d16/DC%20Pandey%20Mechanics%20Vol-2%20(D%20C%20Pandey)%20.pdf" },
+                { title: "Understanding Physics: Electricity & Magnetism — D.C. Pandey", url: "https://cdn.hackclub.com/01a0e354-3967-74c2-ab33-753efd2bae6b/DC%20Pandey%20-%20Electricity%20%20Magnetism%20DC%20Pandey.pdf" },
+                { title: "Understanding Physics: Optics & Modern Physics — D.C. Pandey", url: "https://cdn.hackclub.com/01a0e354-360b-701c-a110-2b4727fb1a51/Understanding%20Physics%20JEE%20Main%20%20Advanced%20-%20Optics%20and%20Modern%20Physics%20(DC%20Pandey).pdf" },
+                { title: "Understanding Physics: Waves & Thermodynamics — D.C. Pandey", url: "https://cdn.hackclub.com/01a0e354-32b2-7996-9166-1e053ce04653/Understanding%20Physics%20JEE%20Main%20%20Advanced%20-%20Waves%20and%20Thermodynamics%20(DC%20Pandey).pdf" }
+            ],
+            chem: [
+                { title: "Problems in Physical Chemistry — Narendra Avasthi", url: "https://cdn.hackclub.com/01a0e2b6-e611-7500-936e-1f3e23cf28de/NARENDRA%20AVASTHI%201.pdf" },
+                { title: "Concise Inorganic Chemistry — J.D. Lee", url: "https://cdn.hackclub.com/01a0e2b4-d76f-74c3-abfa-9e62bf23637b/JD%20Lee%20Concise%20Inorganic%20Chemistry%20for%20JEE.pdf" },
+                { title: "Advanced Theory in Organic Chemistry — M.S. Chouhan", url: "https://cdn.hackclub.com/01a0e2b4-977f-7807-9693-7debc8754ce8/M.S.Chouhan%20Advanced%20Theory%20in%20Organic%20Chemistry%20.pdf" }
+            ]
+        };
+
+        // Allowed passwords (lowercased) mapped to payload references
+        const ALLOWED_PASSWORDS = ["secret", "narayana"];
+        const ENCRYPTED_PAYLOADS = {};
+
+        // Key Derivation Helper (PBKDF2 SHA-256)
+        async function deriveKey(password, saltStr) {
+            const enc = new TextEncoder();
+            const passwordKey = await crypto.subtle.importKey(
+                "raw",
+                enc.encode(password),
+                "PBKDF2",
+                false,
+                ["deriveKey"]
+            );
+            const salt = Uint8Array.from(atob(saltStr), c => c.charCodeAt(0));
+            return crypto.subtle.deriveKey(
+                {
+                    name: "PBKDF2",
+                    salt: salt,
+                    iterations: 100000,
+                    hash: "SHA-256"
+                },
+                passwordKey,
+                { name: "AES-GCM", length: 256 },
+                false,
+                ["encrypt", "decrypt"]
+            );
+        }
+
+        // Encryption Engine
+        async function encryptData(data, password) {
+            const enc = new TextEncoder();
+            const salt = crypto.getRandomValues(new Uint8Array(16));
+            const iv = crypto.getRandomValues(new Uint8Array(12));
+            const saltStr = btoa(String.fromCharCode(...salt));
+            const key = await deriveKey(password, saltStr);
+            
+            const encrypted = await crypto.subtle.encrypt(
+                { name: "AES-GCM", iv: iv },
+                key,
+                enc.encode(JSON.stringify(data))
+            );
+
+            return {
+                salt: saltStr,
+                iv: btoa(String.fromCharCode(...iv)),
+                ciphertext: btoa(String.fromCharCode(...new Uint8Array(encrypted)))
+            };
+        }
+
+        // Decryption Engine
+        async function decryptData(payload, password) {
+            const key = await deriveKey(password, payload.salt);
+            const iv = Uint8Array.from(atob(payload.iv), c => c.charCodeAt(0));
+            const ciphertext = Uint8Array.from(atob(payload.ciphertext), c => c.charCodeAt(0));
+
+            const decrypted = await crypto.subtle.decrypt(
+                { name: "AES-GCM", iv: iv },
+                key,
+                ciphertext
+            );
+
+            const dec = new TextDecoder();
+            return JSON.parse(dec.decode(decrypted));
+        }
+
+        // Initialize encrypted payloads for allowed case-insensitive passwords
+        (async function initPayloads() {
+            try {
+                for (const pwd of ALLOWED_PASSWORDS) {
+                    ENCRYPTED_PAYLOADS[pwd] = await encryptData(VAULT_LINKS, pwd);
+                }
+            } catch (e) {
+                console.error("Encryption initialization failed:", e);
+            }
+        })();
+
+        async function unlockVault(event) {
+            event.preventDefault();
+            const rawInput = document.getElementById('vaultPassword').value;
+            const normalizedPassword = rawInput.trim().toLowerCase();
+            const errorElement = document.getElementById('authError');
+
+            if (!ENCRYPTED_PAYLOADS[normalizedPassword]) {
+                errorElement.style.display = 'block';
+                return;
+            }
+
+            try {
+                const targetPayload = ENCRYPTED_PAYLOADS[normalizedPassword];
+                const decryptedData = await decryptData(targetPayload, normalizedPassword);
+                
+                // Render decrypted content into page
+                renderCategory('mathList', decryptedData.math);
+                renderCategory('physicsList', decryptedData.physics);
+                renderCategory('chemList', decryptedData.chem);
+
+                // Reveal main vault content
+                document.getElementById('authOverlay').style.display = 'none';
+                document.getElementById('vaultContent').style.display = 'block';
+            } catch (err) {
+                errorElement.style.display = 'block';
+            }
+        }
+
+        function renderCategory(elementId, items) {
+            const container = document.getElementById(elementId);
+            container.innerHTML = '';
+            items.forEach(item => {
+                const card = document.createElement('a');
+                card.className = 'file-card';
+                card.href = item.url;
+                card.setAttribute('download', '');
+                card.innerHTML = `<span>${item.title}</span><span class="arrow">▶</span>`;
+                container.appendChild(card);
+            });
+        }
+
         function openModal() {
             document.getElementById('disclaimerModal').style.display = 'flex';
         }
@@ -419,6 +595,5 @@ For any questions, copyright inquiries, or concerns regarding this disclaimer, p
             }
         }
     </script>
-
 </body>
 </html>
